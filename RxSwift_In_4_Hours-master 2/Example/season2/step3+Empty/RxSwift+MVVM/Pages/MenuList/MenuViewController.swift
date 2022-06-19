@@ -38,11 +38,20 @@ class MenuViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
+
+        // 아래 코드와 똑같은 기능을 한다.
         viewModel.itemCount
             .map { "\($0)" }
-            .observeOn(MainScheduler.instance)
-            .bind(to: itemCountLabel.rx.text)
+            .asDriver(onErrorJustReturn: "")
+            .drive(itemCountLabel.rx.text)
             .disposed(by: disposeBag)
+
+//        viewModel.itemCount
+//            .map { "\($0)" }
+//            .catchErrorJustReturn("")
+//            .observeOn(MainScheduler.instance)
+//            .bind(to: itemCountLabel.rx.text)
+//            .disposed(by: disposeBag)
 
         viewModel.totalPrice
             .map { $0.currencyKR() }
@@ -79,11 +88,7 @@ class MenuViewController: UIViewController {
     @IBAction func onOrder(_ sender: UIButton) {
         // TODO: no selection
 
-        viewModel.menuObservable.onNext([
-            Menu(id: 1, name: "changed", price: Int.random(in: 100...1000), count: Int.random(in: 0...3)),
-            Menu(id: 2, name: "changed", price: Int.random(in: 100...1000), count: Int.random(in: 0...3)),
-            Menu(id: 3, name: "changed", price: Int.random(in: 100...1000), count: Int.random(in: 0...3))
-        ])
+        viewModel.onOrder()
     }
 
 //    func updateUI() {
