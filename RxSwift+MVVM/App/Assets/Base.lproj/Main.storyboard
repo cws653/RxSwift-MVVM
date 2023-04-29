@@ -182,9 +182,6 @@
                                                 <state key="normal" title="Clear">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="onClear" destination="BYZ-38-t0r" eventType="touchUpInside" id="GEh-qG-9YT"/>
-                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rl1-78-xt6">
                                                 <rect key="frame" x="333.5" y="10" width="60.5" height="20.5"/>
@@ -236,9 +233,6 @@
                                         <state key="normal" title="ORDER">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="onOrder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7P-9N-2Yy"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -265,7 +259,9 @@
                     <navigationItem key="navigationItem" id="BT3-8Z-x6r"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Nu0-hX-oLR" id="Gsj-bj-WVn"/>
+                        <outlet property="clearButton" destination="V7X-jb-lRK" id="3cj-cf-OqU"/>
                         <outlet property="itemCountLabel" destination="SGx-9Z-PY9" id="9q6-xc-sbF"/>
+                        <outlet property="orderButton" destination="igv-Xl-GNd" id="wGp-Oa-qUl"/>
                         <outlet property="tableView" destination="cOR-Hz-VrD" id="6OK-xO-YWk"/>
                         <outlet property="totalPrice" destination="vsz-cf-vya" id="Gx2-UT-L2q"/>
                         <segue destination="sbb-9C-ONf" kind="show" identifier="OrderViewController" id="JKY-Of-bnF"/>
